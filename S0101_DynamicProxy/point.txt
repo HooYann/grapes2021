@@ -1,0 +1,33 @@
+静态代理减少了部分重复性编码。但不够灵活，遇到新的接口、方法，需要编写新的静态代理类或者新的静态代理方法。
+
+
+动态代理通过反射技术能够灵活的实现不同接口、方法的代理。
+
+技术要点
+1、实现java.lang.reflect.InvocationHandler接口，
+2、使用java.lang.reflect.Proxy的newProxyInstance方法生成动态代理类。
+
+源码解析
+1、Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), ih);
+2、Class<?> cl = getProxyClass0(loader, interfaces);
+3、proxyClassCache.get(loader, interfaces);
+4、subKeyFactory.apply(key, parameter);//ProxyClassFactory
+5、byte[] proxyClassFile = ProxyGenerator.generateProxyClass(proxyName, interfaces, accessFlags);
+
+生成的动态代理对象是什么样子？运行机制是怎样的？
+public class $Proxy0 extends Proxy implements XXX {
+    public $Proxy0 (InvocationHandler ih) {
+        super(ih);
+    }
+
+    public void operate() throws {
+        try{
+            super.h.invoke(this, m3, (object[])null);
+        }catch(RuntimeException | Error var2) {
+            throw var2;
+        }catch(Throwable var3) {
+            throw var3;
+        }
+    }
+
+}
