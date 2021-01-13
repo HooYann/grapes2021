@@ -2,6 +2,8 @@ package org.yann.dynamicproxy;
 
 public interface Mapper2 {
 
-    void abc(String s);
+    void abc();
+
+    void abc2(String s);
 
 }
