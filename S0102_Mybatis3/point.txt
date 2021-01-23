@@ -1,0 +1,11 @@
+JDBC核心API：
+    DriverManager 连接诶数据库
+    Connection连接数据库的抽象
+    Statement执行sql
+    ResultSet数据库结果集
+
+数据库连接工具：
+    DBUtils
+    JDBCTemplate
+    Hibernate
+    Mybatis

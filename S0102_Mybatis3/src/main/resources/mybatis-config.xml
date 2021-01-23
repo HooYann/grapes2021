@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 有顺序的。先properties，然后settings.... -->
+    <settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--<setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="lazyLoadTriggerMethods" value=""/>-->
+
+        <!-- 开启缓存 默认true -->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- 关闭一级缓存 默认SESSION
+        <setting name="localCacheScope" value="STATEMENT"/>-->
+
+    </settings>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="org.h2.Driver"/>
+                <!--<property name="url" value="jdbc:h2:mem:test"/>
+                内存模式得容器启动h2，暂时只会与SpringBoot结合时才会使用 -->
+                <property name="url" value="jdbc:h2:~/test"/>
+                <property name="username" value="sa"/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--<mapper resource="org/yann/mybatis3/mapper/S0102UserMapper.xml"/>-->
+        <mapper class="org.yann.mybatis3.mapper.S0102UserMapper"/>
+        <mapper class="org.yann.mybatis3.mapper.S0102GroupMapper"/>
+
+        <mapper class="org.yann.mybatis3.mapper.S0102UserAssociationMapper"/>
+        <mapper class="org.yann.mybatis3.mapper.S0102GroupCollectionMapper"/>
+
+        <mapper class="org.yann.mybatis3.mapper.S0102UserCacheMapper"/>
+        <mapper class="org.yann.mybatis3.mapper.S0102GroupCacheMapper"/>
+    </mappers>
+</configuration>
+

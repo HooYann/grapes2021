@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yann.mybatis3.mapper.S0102UserAssociationMapper">
+
+    <resultMap id="resultMap_4_association" type="org.yann.mybatis3.entity.S0102UserAssociation">
+        <id column="ID" property="id"></id>
+        <result column="USERNAME" property="username"></result>
+        <result column="NAME" property="name"></result>
+        <association property="group">
+            <id column="GID" property="id"></id>
+            <result column="GNAME" property="name"></result>
+        </association>
+    </resultMap>
+    <select id="association" resultMap="resultMap_4_association">
+        select
+            u.id id, u.username username, u.name name,
+            g.id gid, g.name gname
+        from s0102_user u
+        join s0102_group g on u.group_id = g.id
+        where u.id = #{id}
+    </select>
+
+    <resultMap id="resultMap_4_associationByStep" type="org.yann.mybatis3.entity.S0102UserAssociation">
+        <id column="ID" property="id"></id>
+        <result column="USERNAME" property="username"></result>
+        <result column="NAME" property="name"></result>
+        <association property="group" column="group_id"
+                     select="org.yann.mybatis3.mapper.S0102GroupMapper.selectGroup" />
+        <!-- 懒加载fetchType <association property="group" fetchType="lazy" column="group_id"
+                     select="org.yann.mybatis3.mapper.S0102GroupMapper.selectGroup" />-->
+    </resultMap>
+    <select id="associationByStep" resultMap="resultMap_4_associationByStep">
+        select * from s0102_user where id = #{id}
+    </select>
+
+
+</mapper>

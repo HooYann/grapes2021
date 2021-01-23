@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yann.mybatis3.mapper.S0102UserMapper">
+
+    <select id="selectUser" resultType="org.yann.mybatis3.entity.S0102User">
+        select * from s0102_user where id = #{id}
+    </select>
+
+    <select id="hashMap" resultType="java.util.Map">
+        select * from s0102_user where id = #{id}
+    </select>
+    <select id="hashMaps" resultType="java.util.Map">
+        select * from s0102_user
+    </select>
+
+    <resultMap id="resultMap_4_map" type="map">
+        <id column="ID" property="id"></id>
+        <result column="USERNAME" property="username"></result>
+        <result column="NAME" property="name"></result>
+    </resultMap>
+    <select id="resultMap" resultMap="resultMap_4_map">
+        select * from s0102_user
+        <where>
+            <if test="id != null and id != 0">
+                id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectUsersByGroupId" resultType="org.yann.mybatis3.entity.S0102User">
+        select * from s0102_user where group_id = #{groupId}
+    </select>
+
+</mapper>

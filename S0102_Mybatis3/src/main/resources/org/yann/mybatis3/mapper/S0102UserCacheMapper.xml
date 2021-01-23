@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yann.mybatis3.mapper.S0102UserCacheMapper">
+
+    <!---->
+    <cache-ref namespace="org.yann.mybatis3.mapper.S0102GroupCacheMapper"/>
+
+    <insert id="insert">
+        insert into s0102_user(id, group_id, username, name) values (#{u.id}, #{u.groupId}, #{u.username}, #{u.name})
+    </insert>
+
+</mapper>

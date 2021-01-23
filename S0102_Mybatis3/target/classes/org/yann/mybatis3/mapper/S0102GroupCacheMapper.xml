@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yann.mybatis3.mapper.S0102GroupCacheMapper">
+
+    <!-- 开启二级缓存第二步，全局变量，key是命名空间-->
+    <!--
+        eviction：以哪种方式回收
+            LRU – 最近最少使用：移除最长时间不被使用的对象。
+            FIFO – 先进先出：按对象进入缓存的顺序来移除它们。
+            SOFT – 软引用：基于垃圾回收器状态和软引用规则移除对象。
+            WEAK – 弱引用：更积极地基于垃圾收集器状态和弱引用规则移除对象。
+
+        flushInterval：刷新间隔，单位毫秒
+        size：缓存大小，默认1024
+        readOnly：只读属性可以被设置为 true 或 false。
+            只读的缓存会给所有调用者返回缓存对象的相同实例。因此这些对象不能被修改。这就提供了可观的性能提升。
+            而可读写的缓存会（通过序列化）返回缓存对象的拷贝。 速度上会慢一些，但是更安全，因此默认值是 false。
+    -->
+    <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true"
+    />
+
+    <!-- flushCache默认true。false不清空缓存  -->
+    <insert id="insert" flushCache="true">
+        insert into s0102_group (id, name) values (#{g.id}, #{g.name})
+    </insert>
+
+    <!-- useCache默认true。false不使用缓存  -->
+    <select id="selectGroups" resultType="org.yann.mybatis3.entity.S0102GroupCache"
+            useCache="true">
+        select * from s0102_group;
+    </select>
+
+    <select id="selectGroup" resultType="org.yann.mybatis3.entity.S0102GroupCache">
+        select * from s0102_group where id = #{id}
+    </select>
+
+    <select id="selectUsersByGroupId" resultType="org.yann.mybatis3.entity.S0102UserCache">
+        select * from s0102_user where group_id = #{id}
+    </select>
+
+</mapper>

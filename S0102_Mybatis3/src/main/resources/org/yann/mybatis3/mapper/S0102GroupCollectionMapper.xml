@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.yann.mybatis3.mapper.S0102GroupCollectionMapper">
+
+    <resultMap id="resultMap_4_collection" type="org.yann.mybatis3.entity.S0102GroupCollection">
+        <id column="ID" property="id"></id>
+        <result column="NAME" property="name"></result>
+        <collection property="users" ofType="org.yann.mybatis3.entity.S0102User">
+            <id column="UID" property="id"/>
+            <result column="UUSERNAME" property="username"/>
+            <result column="UNAME" property="name"/>
+        </collection>
+    </resultMap>
+    <select id="collection" resultMap="resultMap_4_collection">
+        select
+            g.id id, g.name name,
+            u.id uid, u.username uusername, u.name uname
+        from s0102_group g
+        join s0102_user u on g.id = u.group_id
+        where g.id = #{id}
+    </select>
+
+    <resultMap id="resultMap_4_collectionByStep" type="org.yann.mybatis3.entity.S0102GroupCollection">
+        <id column="ID" property="id"></id>
+        <result column="NAME" property="name"></result>
+        <collection property="users" ofType="org.yann.mybatis3.entity.S0102User"
+                    column="id"
+                    select="org.yann.mybatis3.mapper.S0102UserMapper.selectUsersByGroupId" />
+    </resultMap>
+    <select id="collectionByStep" resultMap="resultMap_4_collectionByStep">
+        select * from s0102_group where id = #{id}
+    </select>
+
+</mapper>
