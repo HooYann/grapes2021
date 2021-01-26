@@ -17,14 +17,6 @@
 
     </settings>
 
-    <plugins>
-        <!--<plugin interceptor="com.github.pagehelper.PageInterceptor">
-            <property name="reasonable" value="true"/>
-        </plugin>-->
-        <!-- 模仿版 -->
-        <plugin interceptor="org.yann.mybatis3.interceptor.PageHelperImitate"></plugin>
-    </plugins>
-
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -40,14 +32,9 @@
     </environments>
     <mappers>
         <!--<mapper resource="org/yann/mybatis3/mapper/S0102UserMapper.xml"/>-->
-        <mapper class="org.yann.mybatis3.mapper.S0102UserMapper"/>
-        <mapper class="org.yann.mybatis3.mapper.S0102GroupMapper"/>
-
-        <mapper class="org.yann.mybatis3.mapper.S0102UserAssociationMapper"/>
-        <mapper class="org.yann.mybatis3.mapper.S0102GroupCollectionMapper"/>
-
-        <mapper class="org.yann.mybatis3.mapper.S0102UserCacheMapper"/>
-        <mapper class="org.yann.mybatis3.mapper.S0102GroupCacheMapper"/>
+        <mapper class="org.yann.mybatis3.generator.simple.S0102UserMapper"/>
+        <mapper class="org.yann.mybatis3.generator.normal.S0102UserMapper"/>
+        <mapper class="org.yann.mybatis3.generator.dynamicsql.S0102UserMapper"/>
     </mappers>
 </configuration>
 

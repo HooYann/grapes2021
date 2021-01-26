@@ -8,6 +8,10 @@
         select * from s0102_user where id = #{id}
     </select>
 
+    <select id="selectUsers" resultType="org.yann.mybatis3.entity.S0102User">
+        select * from s0102_user
+    </select>
+
     <select id="hashMap" resultType="java.util.Map">
         select * from s0102_user where id = #{id}
     </select>

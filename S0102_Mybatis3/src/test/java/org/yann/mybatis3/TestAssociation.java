@@ -6,15 +6,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.yann.mybatis3.entity.S0102User;
 import org.yann.mybatis3.entity.S0102UserAssociation;
 import org.yann.mybatis3.mapper.S0102UserAssociationMapper;
-import org.yann.mybatis3.mapper.S0102UserMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 public class TestAssociation {
 

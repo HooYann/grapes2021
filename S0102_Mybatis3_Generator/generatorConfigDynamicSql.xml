@@ -1,0 +1,19 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="dynamicSql" targetRuntime="MyBatis3DynamicSql">
+        <jdbcConnection
+                driverClass="org.h2.Driver"
+                connectionURL="jdbc:h2:~/test"
+                userId="sa"
+                password=""/>
+
+        <javaModelGenerator targetPackage="org.yann.mybatis3.generator.dynamicsql" targetProject="src/main/java"/>
+
+        <javaClientGenerator targetPackage="org.yann.mybatis3.generator.dynamicsql" targetProject="src/main/java"/>
+
+
+        <table tableName="s0102_user" domainObjectName="S0102User" mapperName="S0102UserMapper"/>
+    </context>
+</generatorConfiguration>

@@ -17,6 +17,14 @@
 
     </settings>
 
+    <plugins>
+        <!--<plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="reasonable" value="true"/>
+        </plugin>-->
+        <!-- 模仿版 -->
+        <plugin interceptor="org.yann.mybatis3.interceptor.PageHelperImitate"></plugin>
+    </plugins>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>

@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.session.RowBounds;
 import org.yann.mybatis3.entity.S0102User;
 
 import java.util.List;
@@ -12,6 +13,9 @@ import java.util.Map;
 public interface S0102UserMapper {
 
     S0102User selectUser(Long id);
+
+    List<S0102User> selectUsers();
+    List<S0102User> selectUsers(RowBounds rowBounds);
 
     @Select("select * from s0102_user where username = #{username}")
     S0102User selectUserByUsername(String username);
@@ -28,6 +32,5 @@ public interface S0102UserMapper {
     List<Map<String, Object>> resultMap(Long id);
 
     List<S0102User> selectUsersByGroupId(Long groupId);
-
 
 }
