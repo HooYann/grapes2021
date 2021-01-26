@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="S0101_DynamicProxy" />
+        <module name="S0102_Mybatis3_Generator" />
         <module name="S0103_Junit5" />
         <module name="S0102_Mybatis3" />
       </profile>
