@@ -13,6 +13,7 @@
         <module>S0102_Mybatis3</module>
         <module>S0102_Mybatis3_Generator</module>
         <module>S0103_Junit5</module>
+        <module>S0104_Reflect</module>
 
     </modules>
 

@@ -1,0 +1,49 @@
+一、反射
+动态创建对象
+动态操作属性
+动态调用方法
+动态操作泛型和注解
+
+反射的入口：Class对象。
+每个类都有自己的对象，好比图纸和实物的关系。而Class类是所有类对象的共同图纸。
+就是说每个类都是看做一个对象，有共同图纸Class，存放类的结构信息。
+
+反射的优势：
+1、编译的时候不知道类或对象的具体信息，运行时才知道
+2、可以突破封装限制，即使private成员也可以访问
+
+反射的劣势：
+1、代码繁琐，可读性差
+2、速度有影响
+3、可以突破封装限制，即使private成员也可以访问，安全存隐患。
+
+
+二、泛型
+泛型出现之前，我们把Java数据类型归为2类：
+1、primitive type：基本数据类型。
+2、raw type：引用类型。包括平常所指的类，还包括数组、接口、注解、枚举。
+泛型出现后，就新增了
+3、Generic Type：泛型。
+    包括数据类型：
+    3.1、parameterized type：参数化类型。就是我们平常所用到的泛型List<T>、Map<K,V>的List、Map。
+    3.2、type variable：类型变量。比如List<T>中的T。
+    3.3、generic array type：泛型数组类型。并不是我们平常所使用的数组String[]，而是带泛型的数组，比如T[]，
+    List<T>[]。
+    3.4、Wildcard type：泛型表达式类型。如List<? extends Object>。
+
+为了通过反射操作泛型，但又需要不影响之前的操作，就不能在原来Class类上进行修改。Java就新增了
+ParameterizedType、TypeVariable、GenericArrayType、WildcardType四种类型来代表不能被归
+到Class类中但又和原始类型齐名的类型。它们统一继承java.lang.reflect.Type接口，同时把Class
+作为Type接口的实现类。
+
+
+三、注解
+注解作用
+编译检查：如@SuppressWarnings、@Deprecated、@Override。
+替代配置文件：使用反射读取注解信息。
+
+新增内置注解：
+@SafeVarargs：Java7，忽略参数为泛型变量的方法或构造函数在被调用时产生的的警告。
+    可用于构造函数、static和final修饰的方法。运行时，就不会出现警告。
+@FunctionalInterface：Java8，标记一个匿名函数或者函数式接口
+@Repeatable：Java8，标记某注解可以在同一声明上使用多次。
