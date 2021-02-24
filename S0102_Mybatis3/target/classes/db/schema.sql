@@ -14,6 +14,10 @@ create table s0102_group(
                             primary key(id)
 );
 
+create table s0102_color(
+                            v varchar(20)
+);
+
 
 /*drop table s0102_user if exists;
 create table s0102_user(

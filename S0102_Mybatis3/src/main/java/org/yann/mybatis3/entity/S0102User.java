@@ -7,7 +7,7 @@ public class S0102User {
 
     private Long id;
 
-    private Long group_id;
+    private Long groupId;
 
     private String username;
 

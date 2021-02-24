@@ -17,7 +17,7 @@ import java.util.List;
 
 
 /**
- * 1、从MappedStatement难道Cache对象
+ * 1、从MappedStatement拿道Cache对象
  * 2、把Cache对象作为Key通过TransactionalCacheManager拿二级缓存
  * 3、如果没有就把Cache通过TransactionalCacheManager暂时存进TransactionalCache的
  * entriesToAddOnCommit属性中
@@ -57,6 +57,10 @@ public class TestCache2 {
         //sql1
         List<S0102GroupCache> groups1 = mapper1.selectGroups();
         System.out.println(groups1);
+
+        //sql exclusive
+        S0102GroupCache g = mapper1.selectGroup(11L);
+
         sqlSession1.commit();
 
         //第二个SqlSession
@@ -65,6 +69,7 @@ public class TestCache2 {
         //sql1
         List<S0102GroupCache> groups2 = mapper2.selectGroups();
         System.out.println(groups2);
+
     }
 
     @Test

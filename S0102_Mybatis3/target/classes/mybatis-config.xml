@@ -15,14 +15,24 @@
         <!-- 关闭一级缓存 默认SESSION
         <setting name="localCacheScope" value="STATEMENT"/>-->
 
+        <!-- 开启驼峰命名映射 -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+
     </settings>
 
+    <!--
+    <typeHandlers>
+        <typeHandler handler="org.yann.mybatis3.handler.ColorTypeHandler"/>
+    </typeHandlers>-->
+
     <plugins>
-        <!--<plugin interceptor="com.github.pagehelper.PageInterceptor">
+        <!-- github第三方版 -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
             <property name="reasonable" value="true"/>
-        </plugin>-->
-        <!-- 模仿版 -->
+        </plugin>
+        <!-- 模仿版
         <plugin interceptor="org.yann.mybatis3.interceptor.PageHelperImitate"></plugin>
+        -->
     </plugins>
 
     <environments default="development">
@@ -48,6 +58,10 @@
 
         <mapper class="org.yann.mybatis3.mapper.S0102UserCacheMapper"/>
         <mapper class="org.yann.mybatis3.mapper.S0102GroupCacheMapper"/>
+
+        <mapper class="org.yann.mybatis3.mapper.S0102UserMapperForSelectProvider"/>
+
+        <mapper class="org.yann.mybatis3.mapper.S0102ColorMapper"/>
     </mappers>
 </configuration>
 

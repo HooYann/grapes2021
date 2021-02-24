@@ -9,3 +9,10 @@ JDBC核心API：
     JDBCTemplate
     Hibernate
     Mybatis
+
+
+
+ORM，在面向对象编程语言里，实现不同类型系统数据之间的转换。
+
+Mybatis
+源码解析：

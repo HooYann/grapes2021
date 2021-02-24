@@ -12,6 +12,7 @@ import org.yann.mybatis3.mapper.S0102UserMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,10 +35,20 @@ public class Test01 {
     @Test
     void select01() {
         try (SqlSession session = sqlSessionFactory.openSession()) {
-            S0102User s0102User = (S0102User) session.selectOne(
-                    "org.yann.mybatis3.mapper.S0102UserMapper.selectUser", 1);
+            S0102User s0102User = session.selectOne(
+                    "org.yann.mybatis3.mapper.S0102UserMapper.selectUser", 1L);
             System.out.println(s0102User.getName());
         }
+    }
+
+    @Test
+    void select0101() {
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            List<S0102User> s0102UserList = session.selectList(
+                    "org.yann.mybatis3.mapper.S0102UserMapper.selectUsers", null);
+            System.out.println(s0102UserList);
+        }
+
     }
 
     @Test
@@ -45,7 +56,6 @@ public class Test01 {
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         S0102UserMapper s0102UserMapper = sqlSession.getMapper(S0102UserMapper.class);
         S0102User s0102User = s0102UserMapper.selectUser(1L);
-        System.out.println(s0102User);
 
         s0102User = s0102UserMapper.selectUserByUsername("lisi");
         System.out.println(s0102User);
