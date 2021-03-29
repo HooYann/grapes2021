@@ -1,0 +1,15 @@
+org\yann\reflect\generic\Student.class
+org\yann\reflect\Animal.class
+org\yann\reflect\annotation\Column.class
+org\yann\reflect\annotation\AnnotationSafeVarargs.class
+org\yann\reflect\annotation\AnnotationFunctionalInterface.class
+org\yann\reflect\annotation\Table.class
+org\yann\reflect\Test.class
+org\yann\reflect\generic\GenericInStatic.class
+org\yann\reflect\Pig.class
+org\yann\reflect\annotation\AnnotationRepeatable.class
+org\yann\reflect\annotation\User.class
+org\yann\reflect\annotation\Value.class
+org\yann\reflect\annotation\Values.class
+org\yann\reflect\Dog.class
+org\yann\reflect\annotation\Student.class

@@ -48,7 +48,7 @@ public class TestClass {
         }
         Field[] superClsFields = clazz.getSuperclass().getDeclaredFields();
         for (Field superClsField : superClsFields) {
-        System.out.println(superClsField);
+            System.out.println(superClsField);
             System.out.println(superClsField.getName() + "#" + superClsField.getType()
                     + "#" + Modifier.toString(superClsField.getModifiers()));
         }

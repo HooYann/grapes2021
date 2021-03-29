@@ -9,11 +9,11 @@ public class Student implements Comparable<Integer>, Serializable {
 
     @Override
     public int compareTo(Integer i) {
-        return i>0 ? i: 0;
+        return i>0 ? i : 0;
     }
     //@Override
     public int compareTo1(Integer i) {
-        return i>0 ? i: 0;
+        return i>0 ? i : 0;
     }
     @Override
     public String toString() {

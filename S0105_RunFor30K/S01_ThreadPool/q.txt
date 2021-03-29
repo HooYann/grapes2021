@@ -1,0 +1,42 @@
+1、执行一个简单的任务，为什么Executors.newSingleThreadPoolExecutor比平常new 100000个线程
+要快这么多？Executors.newCachedThreadPool也比较快？执行一个耗时的任务，为什么Executors.new
+CachedThreadPool最快？
+答：因为简单的任务执行快，比线程的创建、切换都要快，此时使用线程得不偿失，所以此时使用Executors.
+newSingleThreadPoolExecutor比创建10w个线程快多了，使用Executors.newCachedThreadPool其实也
+只创建了几百个线程来完成10w个任务，所以也比较快。而执行一个比线程创建、切换耗时多得多的任务，此时
+使用Executors.newCacheThreadPool的多线程优势就体现出来了。
+
+2、为什么使用线程？为什么使用线程池？
+答：因为有些任务是阻塞的，有些任务是耗时的，此时使用线程就能避免不必要的等待，使资源高效率的使用。
+比如，通常网站不同用户之间的访问，B用户没必要等待A用户操作完成才能操作，他们之间本来就是线程隔离的；
+或者有些是处理图片，有的是文件的读写，有的是系统间交互等耗时任务。
+
+3、自定义线程池new ThreadPoolExecutor(10, 20, 10L, TimeUnit.SECONDS,new LinkedBlockingQueue<Runnable>(10));
+打印顺序0-9,20-29,10-19？
+答：从ThreadPoolExecutor源码可以知道，首先进入addWork方法，当前任务数与corePoolSize比较，
+如果小于corePoolSize，则将任务加入HashSet<Worker> workers集合中；如果大于corePoolSize就
+会加入队列workQueue.offer(command)中；如果队列加入失败，再次进入addWork方法，如果当前任务
+数与maxPoolSize比较，如果小于maxPoolSize，则将任务加入HashSet<Worker> workers集合中；如果
+大于maxPoolSize，则会进入reject方法，执行拒绝策略。
+
+4、线程池执行任务时，会启动新的线程吗？
+Work w = new Work(firstTask)会创建新的线程。
+
+5、execute方法与submit方法的区别？
+1)execute方法是java.util.concurrent.Executor接口定义的，submit方法是
+java.util.concurrent.ExecutorService接口定义的。
+2)submit方法有返回值，里面的逻辑依然是调用execute方法。
+
+拒绝策略梳理//ok
+
+6、SynchronousQueue<Runnable>并不存储任务，它是干什么的？
+答：SynchronousQueue是借助自己实现的Transfer接口来提供队列功能的。一个是非公平的后进先出LIFO的
+TransferStack实现，一个是公平的先进先出FIFO的TransferQueue实现。其细节与LinkedTransferQueue
+大同小异。
+
+7、阿里为什么不推介使用Java提供的线程池方法？
+答：Java提供的线程池方法，一个是Executors.newCacheThreadPool()，它的问题是最大线程数定义的是
+Integer.MAX_VALUE，极大的占用CPU资源，运行速度变慢，卡机，甚至宕机。一个是
+Executors.newFixedThreadPool()，它的问题是它的workQueue的最大值定义的是Integer.MAX_VALUE，
+容易造成内存溢出。
+

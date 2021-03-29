@@ -47,6 +47,11 @@ public class TestGeneric {
                 for (Type actualTypeArgument : actualTypeArguments) {
                     System.out.print(actualTypeArgument);
                 }
+
+                System.out.println();
+                System.out.println(parameterizedType.getRawType());
+                System.out.println(parameterizedType.getOwnerType());
+                System.out.println();
                 System.out.println();
             }
 
@@ -68,13 +73,17 @@ public class TestGeneric {
         for (Type actualTypeArgument : parameterizedType.getActualTypeArguments()) {
             System.out.println(actualTypeArgument);
         }
+        System.out.println(parameterizedType.getRawType());
+        System.out.println(parameterizedType.getOwnerType());
     }
 
     @Test
     void breakBorder() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>(2);
         list.add("Reflect");
         list.add("Generic");
+        System.out.println(list);
+        System.out.println(list.size());
         //list.add(123);
         //list.add(true);
         //list.add(LocalDate.now());
@@ -85,6 +94,7 @@ public class TestGeneric {
         addMethod.invoke(list, true);
         addMethod.invoke(list, LocalDate.now());
         System.out.println(list);
+        System.out.println(list.size());
     }
 
 }

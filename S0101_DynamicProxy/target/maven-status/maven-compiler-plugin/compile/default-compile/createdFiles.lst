@@ -1,0 +1,13 @@
+org\yann\dynamicproxy\Mapper2.class
+org\yann\staticproxy\AdminMapper.class
+org\yann\dynamicproxy\MyInvocationHandler.class
+org\yann\dynamicproxy\Test.class
+org\yann\dynamicproxy\util\ProxyClassFileUtil.class
+org\yann\dynamicproxy\Mapper1.class
+org\yann\dynamicproxy\UserMapper.class
+org\yann\staticproxy\StaticProxy.class
+org\yann\staticproxy\UserMapper.class
+org\yann\staticproxy\Mapper.class
+org\yann\dynamicproxy\AbcMapper.class
+org\yann\staticproxy\Test.class
+org\yann\dynamicproxy\Mapper3.class

@@ -8,12 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="S0101_DynamicProxy" />
+        <module name="S0104_Reflect" />
+        <module name="S0102_Mybatis3" />
+        <module name="S0106_Function" />
+        <module name="S01_ThreadPool" />
         <module name="S0102_Mybatis3_Generator" />
         <module name="S0103_Junit5" />
-        <module name="S0102_Mybatis3" />
-        <module name="S0104_Reflect" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="S01_ThreadPool_AQS" target="1.8" />
+      <module name="S01_ThreadPool_Queue" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

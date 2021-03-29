@@ -3,7 +3,6 @@ package org.yann.reflect.annotation;
 import org.junit.jupiter.api.Test;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
 
 public class TestMyAnnotation {
 

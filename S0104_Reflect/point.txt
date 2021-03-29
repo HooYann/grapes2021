@@ -25,11 +25,11 @@
 泛型出现后，就新增了
 3、Generic Type：泛型。
     包括数据类型：
-    3.1、parameterized type：参数化类型。就是我们平常所用到的泛型List<T>、Map<K,V>的List、Map。
-    3.2、type variable：类型变量。比如List<T>中的T。
-    3.3、generic array type：泛型数组类型。并不是我们平常所使用的数组String[]，而是带泛型的数组，比如T[]，
+    3.1、ParameterizedType：参数化类型。就是我们平常所用到的泛型List<T>、Map<K,V>的List、Map。
+    3.2、TypeVariable：类型变量。比如List<T>中的T。
+    3.3、GenericArrayType：泛型数组类型。并不是我们平常所使用的数组String[]，而是带泛型的数组，比如T[]，
     List<T>[]。
-    3.4、Wildcard type：泛型表达式类型。如List<? extends Object>。
+    3.4、WildcardType：泛型表达式类型。如List<? extends Object>。
 
 为了通过反射操作泛型，但又需要不影响之前的操作，就不能在原来Class类上进行修改。Java就新增了
 ParameterizedType、TypeVariable、GenericArrayType、WildcardType四种类型来代表不能被归
@@ -47,3 +47,10 @@ ParameterizedType、TypeVariable、GenericArrayType、WildcardType四种类型�
     可用于构造函数、static和final修饰的方法。运行时，就不会出现警告。
 @FunctionalInterface：Java8，标记一个匿名函数或者函数式接口
 @Repeatable：Java8，标记某注解可以在同一声明上使用多次。
+
+
+================================================================================================
+匿名内部类之所以可以访问局部变量，是因为在底层将这个局部变量的值传入到了匿名内部类中，并且以匿名内部类的成员
+变量的形式存在，这个值的传递过程是通过匿名内部类的构造器完成的。
+
+用final修饰实际上就是为了保护数据的一致性。

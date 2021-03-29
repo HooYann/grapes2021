@@ -4,7 +4,7 @@ public class AnnotationSafeVarargs<T> {
 
     private T[] args;
 
-    @SafeVarargs//用于多个参数，不能用于fixed arity
+    @SafeVarargs//用于可变个数参数，不能用于fixed arity
     public AnnotationSafeVarargs(T ...args) {
         this.args = args;
     }
@@ -30,5 +30,6 @@ public class AnnotationSafeVarargs<T> {
             System.out.println(arg);
         }
     }
+
 
 }

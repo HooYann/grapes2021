@@ -10,6 +10,10 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/S0103_Mybatis3_Generator/pom.xml" />
+        <option value="$PROJECT_DIR$/S0105_RunFor30K/S01_ThreadPool_AQS/pom.xml" />
+        <option value="$PROJECT_DIR$/S0105_RunFor30K/S01_ThreadPool_Queue/pom.xml" />
+        <option value="$PROJECT_DIR$/S01_ThreadPool/pom.xml" />
+        <option value="$PROJECT_DIR$/S01_ThreadPool_Queue/pom.xml" />
       </set>
     </option>
   </component>

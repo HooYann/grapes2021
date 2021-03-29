@@ -1,0 +1,12 @@
+org\yann\mybatis3\generator\normal\S0102UserMapper.class
+org\yann\mybatis3\generator\normal\S0102User.class
+org\yann\mybatis3\generator\normal\S0102UserExample$Criteria.class
+org\yann\mybatis3\generator\normal\S0102UserExample$GeneratedCriteria.class
+org\yann\mybatis3\generator\normal\S0102UserExample$Criterion.class
+org\yann\mybatis3\generator\dynamicsql\S0102UserMapper.class
+org\yann\mybatis3\generator\dynamicsql\S0102User.class
+org\yann\mybatis3\generator\normal\S0102UserExample.class
+org\yann\mybatis3\generator\simple\S0102UserMapper.class
+org\yann\mybatis3\generator\dynamicsql\S0102UserDynamicSqlSupport.class
+org\yann\mybatis3\generator\simple\S0102User.class
+org\yann\mybatis3\generator\dynamicsql\S0102UserDynamicSqlSupport$S0102User.class
